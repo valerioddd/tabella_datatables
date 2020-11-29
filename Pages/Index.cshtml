@@ -1,0 +1,104 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BIRRE</h1>
+</div>
+
+<div class="mt-4 ">
+    <table id="tabella" class="table table-hover table-bordered text-center shadow p-3 mb-5 bg-white rounded" style="width:100%">
+        <thead class="thead-light"></thead>
+    </table>
+</div>
+
+<div class="border shadow p-3 mb-5 bg-white rounded">
+    <div class="row align-items-center p-2 mx-auto">
+        <div class="col-3">
+            <text class="font-weight-bold">Ricarica i dati nella tabella:</text>
+        </div>
+        <div class="col-3" id="generaDati"></div>
+    </div>
+
+    <div class="row align-items-center p-2 mx-auto">
+        <div class="col-3">
+            <text class="font-weight-bold">Cambia il colore delle righe:</text>
+        </div>
+        <div class="col-2">
+            <input type="color" class="form-control" id="input-color" value="#ff0000" disabled>
+        </div>
+        <div class="col-3">
+            <button id="btn-color" class="btn btn-info" disabled>Cambia</button>
+        </div>
+    </div>
+
+    <div class="row align-items-center p-2 mx-auto">
+        <div class="col-3">
+            <text class="font-weight-bold">Elimina le righe selezionate:</text>
+        </div>
+        <div class="col-3">
+            <button id="btn-elimina" class="btn btn-warning" disabled>Elimina</button>
+        </div>
+    </div>
+
+    <div class="row align-items-center p-2 mx-auto">
+        <div class="col-3">
+            <text class="font-weight-bold">Esporta come XML:</text>
+        </div>
+        <div class="col-3" id="exportXML">
+            <button id="btn-export" class="btn btn-primary">XML</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-info" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">INFO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <text><strong>Benvenuto!</strong><br />In pagina troverai una tabella che rappresenta un elenco di birre:</text>
+                <img src="~/img/table.PNG" class="mx-auto img-fluid border border-dark" />
+                <hr />
+
+                <text>Puoi ordinare a tuo piacere le righe cliccando e tenendo premuto sulla prima cella.</text>
+                <img src="~/img/table_reorder.PNG" class="mx-auto img-fluid border border-dark mb-2" />
+                <text>Con un solo click sulla prima cella, la riga viene selezionata.</text>
+                <img src="~/img/table_selected.PNG" class="mx-auto img-fluid border border-dark" />
+                <hr />
+
+                <text>Cliccando <i>Ricarica</i> la tabella viene aggiornata con dati casuali.</text>
+                <img src="~/img/reload.PNG" class="mx-auto img-fluid border border-dark" />
+                <hr />
+
+                <text>Seleziona il colore e poi clicca <i>Cambia</i> per cambiare il colore delle righe selezionate.</text>
+                <img src="~/img/color.PNG" class="mx-auto img-fluid border border-dark" />
+                <hr />
+
+                <text><i>Elimina</i> cancella le righe selezionate.</text>
+                <img src="~/img/delete.PNG" class="mx-auto img-fluid border border-dark" />
+                <hr />
+
+                <text>Se vuoi esporta la tabella in un file xml, clicca <i>XML</i>.</text>
+                <img src="~/img/export.PNG" class="mx-auto img-fluid border border-dark" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ho capito!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/datatables/datatables.min.js"></script>
+}
